@@ -1,6 +1,39 @@
-let first = 0;
-let second = 0;
-let moperator;
+let first = null;
+let second = false;
+let moperator = null;
+let display = 0;
+const displayValue = document.getElementById('dNumbers');
+const btnNumbers = document.querySelectorAll('.numb');
+const btnoperators = document.querySelectorAll('.op');
+
+
+btnNumbers.forEach()(btn => {
+    btn.addEventListener('click', (event) => {
+        const digit = event.target.textContent;
+
+        if (display === 0 || second) {
+            display = digit;
+            second = false;
+        } else {
+            display += digit;
+        }
+        displayNumbers();
+        console.log("Actual value of the display:", display);
+    });
+});
+
+btnoperators.forEach(btn => {
+    btn.addEventListener('click', (event) =>{
+        const pressOperator = event.target.textContent;
+
+    })
+})
+
+
+function displayNumbers(){
+    displayValue.textContent = display;
+}
+displayNumbers();
 
 function add(a, b){
     return a + b;
@@ -18,6 +51,7 @@ function divi(a, b){
         return a / b;
     }
 }
+
 
 
 function operate(first, second, moperator){
