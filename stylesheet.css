@@ -1,0 +1,11 @@
+.display{
+    height: 200px;
+    width: 200px;
+    background-color: green;
+    justify-content: center;
+}
+#dNumbers{
+    color: black;
+    font-size: 50px;
+    text-align: center;
+}
