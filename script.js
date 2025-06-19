@@ -22,7 +22,10 @@ btnNumbers.forEach(btn => {
         console.log("Actual value of the display:", display);
     });
 });
-
+console.log("first number is: ", first);
+console.log("first number is: ", second);
+console.log("first number is: ", rsecond);
+console.log("first number is: ", moperator);
 
 
 
