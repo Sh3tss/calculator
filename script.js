@@ -7,6 +7,7 @@ const displayValue = document.getElementById('dNumbers');
 const btnNumbers = document.querySelectorAll('.numb');
 const btnOperators = document.querySelectorAll('.op');
 const btnEqual = document.getElementById('equal');
+const btnDot = document.getElementById('dot');
 
 //function to update the display number, if the rsecond become true so it`s the second number all the digits clicked, if the rsecond is false keep adding to the first
 btnNumbers.forEach(btn => {
@@ -46,6 +47,14 @@ btnEqual.addEventListener('click', (event) => {
     second = null;
     rsecond = true;
     moperator = null;
+})
+
+//creating the function to work with floats
+btnDot.addEventListener('click', (event) => {
+    if (!display.includes('.')) {
+        display += '.';
+        displayNumbers();
+    }
 })
 
 
