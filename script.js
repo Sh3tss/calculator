@@ -42,9 +42,9 @@ btnEqual.addEventListener('click', (event) => {
     let result = operate(first, second, moperator);
     display = result;
     displayNumbers();
-    first = null;
+    first = result;
     second = null;
-    rsecond = false;
+    rsecond = true;
     moperator = null;
 })
 
