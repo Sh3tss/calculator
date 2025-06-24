@@ -44,6 +44,10 @@ btnEqual.addEventListener('click', (event) => {
     let result = operate(first, second, moperator);
     display = result;
     displayNumbers();
+    first = null;
+    second = null;
+    rsecond = false;
+    moperator = null;
 })
 
 
