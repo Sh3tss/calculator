@@ -2,7 +2,7 @@ let first = null;
 let second = null;
 let rsecond = false;
 let moperator = null;
-let display = 0;
+let display = '0';
 const displayValue = document.getElementById('dNumbers');
 const btnNumbers = document.querySelectorAll('.numb');
 const btnOperators = document.querySelectorAll('.op');
@@ -13,7 +13,7 @@ btnNumbers.forEach(btn => {
     btn.addEventListener('click', (event) => {
         const digit = event.target.textContent;
 
-        if (display === 0 || rsecond) {
+        if (display === '0' || rsecond) {
             display = digit;
             rsecond = false;
         } else {
@@ -38,9 +38,7 @@ btnOperators.forEach(btn => {
 
 // function to make the equal operator work
 btnEqual.addEventListener('click', (event) => {
-    if (rsecond === true){
-        second = parseFloat(display);
-    }
+    second = parseFloat(display);
     let result = operate(first, second, moperator);
     display = result;
     displayNumbers();
