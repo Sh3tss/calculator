@@ -5,7 +5,7 @@ let moperator = null;
 let display = 0;
 const displayValue = document.getElementById('dNumbers');
 const btnNumbers = document.querySelectorAll('.numb');
-const btnoperators = document.querySelectorAll('.op');
+const btnOperators = document.querySelectorAll('.op');
 
 //function to update the display number, if the rsecond become true so it`s the second number all the digits clicked, if the rsecond is false keep adding to the first
 btnNumbers.forEach(btn => {
@@ -22,6 +22,18 @@ btnNumbers.forEach(btn => {
         console.log("Actual value of the display:", display);
     });
 });
+
+btnOperators.forEach(btn => {
+    btn.addEventListener('click', (event) =>{
+        const clickedOperator = event.target.textContent;
+        if (first === null) {
+            first = parseFloat(display);
+        }
+        moperator = clickedOperator;
+        rsecond = true;
+    })
+})
+
 console.log("first number is: ", first);
 console.log("first number is: ", second);
 console.log("first number is: ", rsecond);
