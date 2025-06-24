@@ -8,6 +8,8 @@ const btnNumbers = document.querySelectorAll('.numb');
 const btnOperators = document.querySelectorAll('.op');
 const btnEqual = document.getElementById('equal');
 const btnDot = document.getElementById('dot');
+const btnBackSpace = document.getElementById('bspc');
+const btnClear = document.getElementById('c');
 
 //function to update the display number, if the rsecond become true so it`s the second number all the digits clicked, if the rsecond is false keep adding to the first
 btnNumbers.forEach(btn => {
@@ -57,6 +59,30 @@ btnDot.addEventListener('click', (event) => {
     }
 })
 
+//function to create the clear button
+btnClear.addEventListener('click', (event) => {
+    first = null;
+    second = null;
+    rsecond = false;
+    moperator = null;
+    display = '0';
+    displayNumbers();
+})
+
+//function to the backspace button
+btnBackSpace.addEventListener('click', (event) => {
+    if (typeof display !== 'string' || isNaN(parseFloat(display))) {
+        display = '0';
+    } else if (display === '0') {
+
+    } else if (display.length > 1) {
+        display = display.slice(0, -1);
+    }else {
+        display = '0';
+    }
+    displayNumbers();
+})
+
 
 function displayNumbers(){
     displayValue.textContent = display;
@@ -74,7 +100,7 @@ function mult(a, b){
 }
 function divi(a, b){
     if (b === 0){
-        return "Cannot divide by zero!!!";
+        return "Cannot divide by zero!";
     }else{
         return a / b;
     }
