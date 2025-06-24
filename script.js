@@ -6,6 +6,7 @@ let display = 0;
 const displayValue = document.getElementById('dNumbers');
 const btnNumbers = document.querySelectorAll('.numb');
 const btnOperators = document.querySelectorAll('.op');
+const btnEqual = document.getElementById('equal');
 
 //function to update the display number, if the rsecond become true so it`s the second number all the digits clicked, if the rsecond is false keep adding to the first
 btnNumbers.forEach(btn => {
@@ -23,6 +24,7 @@ btnNumbers.forEach(btn => {
     });
 });
 
+//function to make the operators work
 btnOperators.forEach(btn => {
     btn.addEventListener('click', (event) =>{
         const clickedOperator = event.target.textContent;
@@ -34,11 +36,15 @@ btnOperators.forEach(btn => {
     })
 })
 
-console.log("first number is: ", first);
-console.log("first number is: ", second);
-console.log("first number is: ", rsecond);
-console.log("first number is: ", moperator);
-
+// function to make the equal operator work
+btnEqual.addEventListener('click', (event) => {
+    if (rsecond === true){
+        second = parseFloat(display);
+    }
+    let result = operate(first, second, moperator);
+    display = result;
+    displayNumbers();
+})
 
 
 function displayNumbers(){
