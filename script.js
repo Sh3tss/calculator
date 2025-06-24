@@ -41,14 +41,18 @@ btnOperators.forEach(btn => {
 
 // function to make the equal operator work
 btnEqual.addEventListener('click', (event) => {
+    if (display )
     second = parseFloat(display);
     let result = operate(first, second, moperator);
+    if (result.toString().length > 10) {
+        result.parseFloat(result.toFixed(3));
+    }
     display = result;
     displayNumbers();
     first = result;
     second = null;
     rsecond = true;
-    moperator = null;
+    moperator = null
 })
 
 //creating the function to work with floats
