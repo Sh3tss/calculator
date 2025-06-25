@@ -42,17 +42,26 @@ btnOperators.forEach(btn => {
 // function to make the equal operator work
 btnEqual.addEventListener('click', (event) => {
     if (first !== null && moperator !== null) {
-        if (display )
-        second = parseFloat(display);
-        let result = operate(first, second, moperator);
-        result.parseFloat(result.toFixed(3)); // testando se apenas assim vai arredondar
+        return;
+    }
+    let result = operate(first, second, moperator);
+    if (typeof result === 'string' || isNaN(result)) {
+        display = (typeof result === 'string') ? result : 'Error';
+        displayNumbers();
+        first = result;
+        second = null;
+        rsecond = true;
+        moperator = null
+        return;
+    } else if (result.toString().lenght > 10) {
+        result = parseFloat(result.toFixed(3));
     }
     display = result;
     displayNumbers();
     first = result;
     second = null;
     rsecond = true;
-    moperator = null
+    moperator = null;
 })
 
 //creating the function to work with floats
