@@ -19,7 +19,7 @@ btnNumbers.forEach(btn => {
         if (display === '0' || rsecond) {
             display = digit;
             rsecond = false;
-        } else if (display.length < 10) {
+        } else if (display.length <= 10) {
             display += digit;
         }
         displayNumbers();
