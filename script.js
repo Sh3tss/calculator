@@ -10,7 +10,7 @@ const btnEqual = document.getElementById('equal');
 const btnDot = document.getElementById('dot');
 const btnBackSpace = document.getElementById('bspc');
 const btnClear = document.getElementById('c');
-const keyboard = window.addEventListener(window);
+
 
 //function to update the display number, if the rsecond become true so it`s the second number all the digits clicked, if the rsecond is false keep adding to the first
 btnNumbers.forEach(btn => {
@@ -108,7 +108,17 @@ btnBackSpace.addEventListener('click', (event) => {
 // function to add the keyboard support
 wwindow.addEventListener('keydown', (event) =>{
     const keyPressed = event.key;
-    console.log("tecla pressionada:", keyPressed);
+
+    if (/\d/.test(keyPressed)) {
+        if (display === '0' || rsecond) {
+            display = keyPressed;
+            rsecond = false;
+        } else if (display.length <10) {
+            display += keyPressed;
+        }
+        displayNumbers();
+        console.log("tecla pressionada:", keyPressed);
+    }
 })
 
 function displayNumbers(){
