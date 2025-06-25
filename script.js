@@ -41,7 +41,7 @@ btnOperators.forEach(btn => {
 
 // function to make the equal operator work
 btnEqual.addEventListener('click', (event) => {
-    if (first !== null && moperator !== null) {
+    if (first === null && moperator === null) {
         return;
     }
     let result = operate(first, second, moperator);
@@ -52,16 +52,16 @@ btnEqual.addEventListener('click', (event) => {
         second = null;
         rsecond = true;
         moperator = null
-        return;
-    } else if (result.toString().lenght > 10) {
+    } else if (result.toString().length > 10) {
         result = parseFloat(result.toFixed(3));
+    } else {
+        display = result;
+        displayNumbers();
+        first = result;
+        second = null;
+        rsecond = true;
+        moperator = null;
     }
-    display = result;
-    displayNumbers();
-    first = result;
-    second = null;
-    rsecond = true;
-    moperator = null;
 })
 
 //creating the function to work with floats
@@ -113,7 +113,7 @@ function mult(a, b){
 }
 function divi(a, b){
     if (b === 0){
-        return "Error 404";
+        return "Error404";
     }else{
         return a / b;
     }
