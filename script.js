@@ -32,46 +32,12 @@ btnNumbers.forEach(btn => {
 btnOperators.forEach(btn => {
     btn.addEventListener('click', (event) =>{
         const clickedOperator = event.target.textContent;
-        if (first === null) {
-            first = parseFloat(display);
-        }
-        moperator = clickedOperator;
-        rsecond = true;
+        handleOperatorInput(clickedOperator);
     })
 })
 
 // function to make the equal operator work
-btnEqual.addEventListener('click', (event) => {
-    if (first === null || moperator === null || (rsecond && parseFloat(display) === first)) { 
-        return;
-    }
-    second = parseFloat(display);
-    let result = operate(first, second, moperator);
-
-    if (typeof result === 'string' || isNaN(result)) {
-        display = (typeof result === 'string') ? result : 'Error';
-        displayNumbers();
-        first = null;
-        second = null;
-        rsecond = true;
-        moperator = null;
-    } else if (result.toString().length > 10) { 
-        result = parseFloat(result.toFixed(3));
-        display = result;
-        displayNumbers();
-        first = result;
-        second = null;
-        rsecond = true;
-        moperator = null;
-    } else { 
-        display = result;
-        displayNumbers();
-        first = result;
-        second = null;
-        rsecond = true;
-        moperator = null;
-    }
-    });
+btnEqual.addEventListener('click', (keyEqual));
 
 //creating the function to work with floats
 btnDot.addEventListener('click', (event) => {
@@ -118,6 +84,10 @@ wwindow.addEventListener('keydown', (event) =>{
         }
         displayNumbers();
         console.log("tecla pressionada:", keyPressed);
+    } else if (['+', '-', '*', '/'].includes(keyPressed)) {
+        handleOperatorInput(keyPressed);
+    } else if (keyPressed === '=' || keyPressed === 'Enter') {
+        keyEqual();
     }
 })
 
@@ -143,7 +113,48 @@ function divi(a, b){
     }
 }
 
+// function to encapsulate the btnequal function to work with the keyboard too
+function keyEqual() {
+    if (first === null || moperator === null || (rsecond && parseFloat(display) === first)) { 
+        return;
+    }
+    second = parseFloat(display);
+    let result = operate(first, second, moperator);
 
+    if (typeof result === 'string' || isNaN(result)) {
+        display = (typeof result === 'string') ? result : 'Error';
+        displayNumbers();
+        first = null;
+        second = null;
+        rsecond = true;
+        moperator = null;
+    } else if (result.toString().length > 10) { 
+        result = parseFloat(result.toFixed(3));
+        display = result;
+        displayNumbers();
+        first = result;
+        second = null;
+        rsecond = true;
+        moperator = null;
+    } else { 
+        display = result;
+        displayNumbers();
+        first = result;
+        second = null;
+        rsecond = true;
+        moperator = null;
+    }
+}
+
+
+// function to encapsulate the btnoperators function to work with the keyboard too
+function handleOperatorInput(operatorChar) {
+    if (first === null) {
+        first = parseFloat(display);
+    }
+    moperator = operatorChar;
+    rsecond = true;
+}
 
 function operate(first, second, moperator){
     switch (moperator){
