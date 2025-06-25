@@ -19,7 +19,7 @@ btnNumbers.forEach(btn => {
         if (display === '0' || rsecond) {
             display = digit;
             rsecond = false;
-        } else if (display.length <= 10) {
+        } else if (display.length < 10) {
             display += digit;
         }
         displayNumbers();
@@ -41,35 +41,36 @@ btnOperators.forEach(btn => {
 
 // function to make the equal operator work
 btnEqual.addEventListener('click', (event) => {
-    if (first !== null && moperator !== null) { 
-        second = parseFloat(display);
-        let result = operate(first, second, moperator);
-
-        if (typeof result === 'string' || isNaN(result)) {
-            display = (typeof result === 'string') ? result : 'Error';
-            displayNumbers();
-            first = result;
-            second = null;
-            rsecond = true;
-            moperator = null;
-        } else if (result.toString().length > 10) { 
-            result = parseFloat(result.toFixed(3));
-            display = result;
-            displayNumbers();
-            first = result;
-            second = null;
-            rsecond = true;
-            moperator = null;
-        } else { 
-            display = result;
-            displayNumbers();
-            first = result;
-            second = null;
-            rsecond = true;
-            moperator = null;
-        }
+    if (first === null || moperator === null || (rsecond && parseFloat(display) === first)) { 
+        return;
     }
-});
+    second = parseFloat(display);
+    let result = operate(first, second, moperator);
+
+    if (typeof result === 'string' || isNaN(result)) {
+        display = (typeof result === 'string') ? result : 'Error';
+        displayNumbers();
+        first = null;
+        second = null;
+        rsecond = true;
+        moperator = null;
+    } else if (result.toString().length > 10) { 
+        result = parseFloat(result.toFixed(3));
+        display = result;
+        displayNumbers();
+        first = result;
+        second = null;
+        rsecond = true;
+        moperator = null;
+    } else { 
+        display = result;
+        displayNumbers();
+        first = result;
+        second = null;
+        rsecond = true;
+        moperator = null;
+    }
+    });
 
 //creating the function to work with floats
 btnDot.addEventListener('click', (event) => {
