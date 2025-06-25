@@ -72,7 +72,7 @@ btnBackSpace.addEventListener('click', (event) => {
 })
 
 // function to add the keyboard support
-wwindow.addEventListener('keydown', (event) =>{
+window.addEventListener('keydown', (event) =>{
     const keyPressed = event.key;
 
     if (/\d/.test(keyPressed)) {
