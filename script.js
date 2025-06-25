@@ -41,11 +41,11 @@ btnOperators.forEach(btn => {
 
 // function to make the equal operator work
 btnEqual.addEventListener('click', (event) => {
-    if (display )
-    second = parseFloat(display);
-    let result = operate(first, second, moperator);
-    if (result.toString().length > 10) {
-        result.parseFloat(result.toFixed(3));
+    if (first !== null && moperator !== null) {
+        if (display )
+        second = parseFloat(display);
+        let result = operate(first, second, moperator);
+        result.parseFloat(result.toFixed(3)); // testando se apenas assim vai arredondar
     }
     display = result;
     displayNumbers();
@@ -104,7 +104,7 @@ function mult(a, b){
 }
 function divi(a, b){
     if (b === 0){
-        return "Cannot divide by zero!";
+        return "Error 404";
     }else{
         return a / b;
     }
