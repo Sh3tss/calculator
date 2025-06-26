@@ -37,39 +37,16 @@ btnOperators.forEach(btn => {
 })
 
 // function to make the equal operator work
-btnEqual.addEventListener('click', (keyEqual));
+btnEqual.addEventListener('click', keyEqual);
 
 //creating the function to work with floats
-btnDot.addEventListener('click', (event) => {
-    if (!display.includes('.')) {
-        display += '.';
-        displayNumbers();
-    }
-})
+btnDot.addEventListener('click', keyDot);
 
 //function to create the clear button
-btnClear.addEventListener('click', (event) => {
-    first = null;
-    second = null;
-    rsecond = false;
-    moperator = null;
-    display = '0';
-    displayNumbers();
-})
+btnClear.addEventListener('click', keyClear);
 
 //function to the backspace button
-btnBackSpace.addEventListener('click', (event) => {
-    if (typeof display !== 'string' || isNaN(parseFloat(display))) {
-        display = '0';
-    } else if (display === '0') {
-
-    } else if (display.length > 1) {
-        display = display.slice(0, -1);
-    }else {
-        display = '0';
-    }
-    displayNumbers();
-})
+btnBackSpace.addEventListener('click', keyBackSpace);
 
 // function to add the keyboard support
 window.addEventListener('keydown', (event) =>{
@@ -88,6 +65,13 @@ window.addEventListener('keydown', (event) =>{
         handleOperatorInput(keyPressed);
     } else if (keyPressed === '=' || keyPressed === 'Enter') {
         keyEqual();
+    } else if (keyPressed === '.' || keyPressed === ',') {
+        keyDot();
+    } else if (keyPressed === 'BackSpace') {
+        keyBackSpace();
+        event.preventDefault();
+    }else if (keyPressed === 'c' || keyPressed === 'Delete'){
+        keyClear();
     }
 })
 
@@ -146,6 +130,37 @@ function keyEqual() {
     }
 }
 
+// function to encapsulate the btndot function to work with the keyboard too
+function keyDot() {
+    if (!display.includes('.')) {
+        display += '.';
+        displayNumbers();
+    }
+}
+
+// function to encapsulate the clear function to work with the keyboard too
+function keyClear() {
+    first = null;
+    second = null;
+    rsecond = false;
+    moperator = null;
+    display = '0';
+    displayNumbers();
+}
+
+// function to encapsulate the backspace function to work with the keyboard too
+function keyBackSpace() {
+    if (typeof display !== 'string' || isNaN(parseFloat(display))) {
+        display = '0';
+    } else if (display === '0') {
+
+    } else if (display.length > 1) {
+        display = display.slice(0, -1);
+    }else {
+        display = '0';
+    }
+    displayNumbers();
+}
 
 // function to encapsulate the btnoperators function to work with the keyboard too
 function handleOperatorInput(operatorChar) {
