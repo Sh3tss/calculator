@@ -60,14 +60,14 @@ window.addEventListener('keydown', (event) =>{
             display += keyPressed;
         }
         displayNumbers();
-        console.log("tecla pressionada:", keyPressed);
+        console.log("Key pressed:", keyPressed);
     } else if (['+', '-', '*', '/'].includes(keyPressed)) {
         handleOperatorInput(keyPressed);
     } else if (keyPressed === '=' || keyPressed === 'Enter') {
         keyEqual();
     } else if (keyPressed === '.' || keyPressed === ',') {
         keyDot();
-    } else if (keyPressed === 'BackSpace') {
+    } else if (keyPressed === 'Backspace') {
         keyBackSpace();
         event.preventDefault();
     }else if (keyPressed === 'c' || keyPressed === 'Delete'){
