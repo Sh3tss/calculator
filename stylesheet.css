@@ -83,4 +83,35 @@ body {
     gap: 10px;
     width: 95%;
 }
+button {
+    height: 60px;
+    border: none;
+    border-radius: 30px;
+    font-size: 1.8em;
+    cursor: pointer;
+    background-color: #666;
+    color: #fff;
+    transition: background-color 0.2s ease;
+}
+button:hover{
+    background-color: #888;
+}
+.op {
+    background-color: #f7923b;
+}
+.op:hover {
+    background-color: #ff9f4d;
+}
+.eq {
+    background-color: #d32f2f;
+}
+.eq:hover {
+    background-color: #5cb85c;
+}
+.clear {
+    background-color: #d32f2f;
+}
+.clear:hover {
+    background-color: #e53935;
+}
 
