@@ -1,38 +1,81 @@
-.container {
+body {
+    display: flex;
+    justify-content: center;
     align-items: center;
-    background-color:rgb(43, 53, 41)
+    min-height: 100vh;
+    margin: 0;
+    background-color: #f0f0f0;
+    font-family: 'Segoe UI', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.container {
+    background-color: transparent;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 .calculator {
     height: 500px;
-    width: 350;
+    width: 350px;
     border-radius: 20px;
-    background-color: rgb(104, 102, 79);
-    border: 5px;
+    background-color: #333;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.3), 0 6px 6px rgba(0,0,0,0.2);
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
 }
 .insidebox {
-    height: 500px;
-    width: 300px;
-    border-radius: 20px;
-    background-color:rgb(136, 132, 93);
+    height: 100%;
+    width: 100%;
+    border-radius: 15px;
+    background-color:#444;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    padding-top: 20px;
 }
 .outdisplay {
-    height: 150px;
-    width: 200px;
-    border-radius: 20px;
-    background-color: rgb(104, 102, 79);
-    margin-top: 25px;
-    padding-top: 25px;
+    height: 90%;
+    width: 120px;
+    border-radius: 10px;
+    background-color: #222;
+    margin-top: 0;
+    padding: 10px;
+    box-shadow: inset 0 0 10px rgba(0,0,0,0.7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 .display {
-    height: 100px;
-    width: 150px;
-    border-radius: 20px;
-    background-color: green;
-    border: 5px;
+    height: 80px;
+    width: 95%;
+    border-radius: 8px;
+    background-color: #a3a3a3;
+    border: 2px solid #555;
+    padding: 5px 10px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+    overflow: hidden;
+    white-space: nowrap;
+    box-shadow: inset 0 2px 5px rgba(0,0,0,0.3);
 }
 .screen {
-    height: 70px;
-    width: 150px;
-    background-color: lightgreen;
+    height: auto;
+    width: 100%;
+    background-color: transparent;
+    color: #333;
+    font-size: 2.8em;
+    margin: 0;
+    line-height: 1;
+    text-align: right;
+}
+#dNumbers{
+    margin: 0;
+    padding: 0;
+    
 }
 
