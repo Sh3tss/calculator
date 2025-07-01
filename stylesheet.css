@@ -78,11 +78,70 @@ body {
     padding: 0;   
 }
 .buttons{
-    display: grid;
-    grid-template-columns: repeat(4, 1gr);
-    gap: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
     width: 95%;
+    margin-top: 20px
 }
+.math-operators {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+    grid-template-areas: 
+        "clear divide multiply subtract bspc" 
+        "plus . . equal";
+}
+#c {
+    grid-area: clear;
+    background-color: #d32f2f;
+}
+#divide {
+    grid-area: divide;
+    background-color: #ff9500;
+}
+#multiply {
+    grid-area: multiply;
+    background-color: #ff9500;
+}
+#subtract {
+    grid-area: subtract;
+    background-color: #ff9500;
+}
+#plus {
+    grid-area: plus;
+    background-color: #ff9500;
+}
+#equal {
+    grid-area: equal;
+    background-color: #4CAF50;
+}
+#bspc {
+    grid-area: bspc;
+    background-color: #7b7b7b;
+}
+.numbers {
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    gap: 10px;
+    grid-template-areas: 
+        "seven eight nine"
+        "four five six"
+        "one two three"
+        "dox zero equal-num-line";
+}
+#9 {grid-area: nine;}
+#8 {grid-area: eight;}
+#7 {grid-area: seven;}
+#6 {grid-area: six;}
+#5 {grid-area: five;}
+#4 {grid-area: four;}
+#3 {grid-area: three;}
+#2 {grid-area: two;}
+#1 {grid-area: one;}
+#0 {grid-area: zero;}
+#dot {grid-area: dot;}
+
 button {
     height: 60px;
     border: none;
@@ -93,6 +152,7 @@ button {
     color: #fff;
     transition: background-color 0.2s ease;
 }
+
 button:hover{
     background-color: #888;
 }
