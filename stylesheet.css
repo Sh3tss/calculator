@@ -38,8 +38,8 @@ body {
     padding-top: 20px;
 }
 .outdisplay {
-    height: 90%;
-    width: 120px;
+    height: 120px;
+    width: 90%;
     border-radius: 10px;
     background-color: #222;
     margin-top: 0;
@@ -75,7 +75,12 @@ body {
 }
 #dNumbers{
     margin: 0;
-    padding: 0;
-    
+    padding: 0;   
+}
+.buttons{
+    display: grid;
+    grid-template-columns: repeat(4, 1gr);
+    gap: 10px;
+    width: 95%;
 }
 
