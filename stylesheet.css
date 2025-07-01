@@ -93,13 +93,13 @@ body {
     grid-template-areas: 
         "c bspc divide multiply"
         "seven eight nine subtract"
-        "four five siz plus"
+        "four five six plus"
         "one two three dot"
         "zero zero equal equal";
 }
 
 #c {
-    grid-area: clear;
+    grid-area: c;
 }
 #bspc {
     grid-area: bspc;
@@ -174,5 +174,5 @@ button:active{
     transform: scale(0.98);
 }
 .sdot {background-color: #555;}
-.sodt:hover {background-color: #666;}
+.sdot:hover {background-color: #666;}
 
