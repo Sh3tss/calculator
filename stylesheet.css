@@ -84,64 +84,53 @@ body {
     width: 95%;
     margin-top: 20px
 }
-.math-operators {
+.keypad {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(4,1fr);
     gap: 10px;
+    width: 95%;
+    padding-bottom: 10px;
     grid-template-areas: 
-        "clear divide multiply subtract bspc" 
-        "plus . . equal";
+        "c bspc divide multiply"
+        "seven eight nine subtract"
+        "four five siz plus"
+        "one two three dot"
+        "zero zero equal equal";
 }
+
 #c {
     grid-area: clear;
-    background-color: #d32f2f;
-}
-#divide {
-    grid-area: divide;
-    background-color: #ff9500;
-}
-#multiply {
-    grid-area: multiply;
-    background-color: #ff9500;
-}
-#subtract {
-    grid-area: subtract;
-    background-color: #ff9500;
-}
-#plus {
-    grid-area: plus;
-    background-color: #ff9500;
-}
-#equal {
-    grid-area: equal;
-    background-color: #4CAF50;
 }
 #bspc {
     grid-area: bspc;
-    background-color: #7b7b7b;
 }
-.numbers {
-    display: grid;
-    grid-template-columns: repeat(3,1fr);
-    gap: 10px;
-    grid-template-areas: 
-        "seven eight nine"
-        "four five six"
-        "one two three"
-        "dox zero equal-num-line";
+#divide {
+    grid-area: divide;
 }
-#9 {grid-area: nine;}
-#8 {grid-area: eight;}
+#multiply {
+    grid-area: multiply;
+}
 #7 {grid-area: seven;}
-#6 {grid-area: six;}
-#5 {grid-area: five;}
+#8 {grid-area: eight;}
+#9 {grid-area: nine;}
+#subtract {
+    grid-area: subtract;
+}
 #4 {grid-area: four;}
-#3 {grid-area: three;}
-#2 {grid-area: two;}
+#5 {grid-area: five;}
+#6 {grid-area: six;}
+#plus {
+    grid-area: plus;
+}
 #1 {grid-area: one;}
-#0 {grid-area: zero;}
+#2 {grid-area: two;}
+#3 {grid-area: three;}
 #dot {grid-area: dot;}
 
+#0 {grid-area: zero;}
+#equal {
+    grid-area: equal;
+}
 button {
     height: 60px;
     border: none;
@@ -150,20 +139,25 @@ button {
     cursor: pointer;
     background-color: #666;
     color: #fff;
-    transition: background-color 0.2s ease;
+    transition: background-color 0.2s, transform 0.1s;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
+.numb{background-color: #555;}
+.numb:hover{background-color: #666;}
 
 button:hover{
     background-color: #888;
 }
 .op {
-    background-color: #f7923b;
+    background-color: #ff9500;
 }
 .op:hover {
-    background-color: #ff9f4d;
+    background-color: #ffa500;
 }
 .eq {
-    background-color: #d32f2f;
+    background-color: #4CAF50;
 }
 .eq:hover {
     background-color: #5cb85c;
@@ -174,4 +168,11 @@ button:hover{
 .clear:hover {
     background-color: #e53935;
 }
+.bs {background-color: #7b7b7b;}
+.bs:hover{background-color: #8b8b8b;}
+button:active{
+    transform: scale(0.98);
+}
+.sdot {background-color: #555;}
+.sodt:hover {background-color: #666;}
 
